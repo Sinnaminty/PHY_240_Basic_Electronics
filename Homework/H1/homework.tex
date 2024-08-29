@@ -1,0 +1,85 @@
+\documentclass[12pt, letterpaper, onecolumn]{exam}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[lmargin=71pt, tmargin=1.2in]{geometry}  %For centering solution box
+\lhead{Left Header\\}
+\rhead{Right Header\\}
+\thispagestyle{empty}   %For removing header/footer from page 1
+
+\begin{document}
+\nopointsinmargin
+\pointformat{}
+
+\begingroup
+\centering
+\LARGE PHY 240: Basic Electronics\\[0.5em]
+\LARGE Homework Problem H1\\[0.5em]
+\large \today\\[0.5em]
+\large Aiden Rivera\par
+\endgroup
+
+\rule{\textwidth}{0.4pt}
+
+\printanswers
+\renewcommand{\solutiontitle}{\noindent\textbf{Ans:}\enspace}
+
+\begin{questions}
+
+\question[0] How Fast Are Those lil' Buggers Moving?
+\begin{parts}
+
+\part
+The first step is to determine the number density of free electrons in a
+typical wire. I say “free” electrons because most of the electrons in a wire
+are bound to their atoms and may not move freely through the wire. We will
+assume that our wire is copper, and here are the only things that you may
+use while solving this problem:\newline
+
+\begin{itemize}
+\item The density of Copper at room temperature (approximately 8.95 g/cm$^3$).
+\item The mass of a single Copper atom (63.55 amu)
+\item The fact that each copper atom contriubutes \textit{one} free electron.
+\item Avagadro's Number.\newline
+\end{itemize}
+
+Use this information to determine the number density of free electrons (that
+is, the number of free electrons per volume) in Copper. Explain the reasoning
+behind each step of your calculation \textit{clearly}.\newline
+
+\part
+Suppose that our wire is an AWG 14 gauge wire1 that has a current of
+500 mA flowing through it. Determine the average velocity of the electrons
+“down the wire” that is necessary to produce this current.\newline
+
+\part
+The answer that you obtained for Part (b) above is called the “electron
+drift velocity”, because it is the velocity at which electrons drift down the
+wire. Even if you turn the electric current off, however, the electrons are still
+moving in the wire (they simply lack a tendency to drift in any particular
+direction). Because of the Pauli exclusion principle, the electrons in copper
+are stacked up so high that the free electrons in the wire have a kinetic energy
+of roughly 7 eV.\newline
+
+Convert this 7 eV to Joules. Look up the mass of an electron. Dust off your
+Physics I, and use the expression for kinetic energy to determine how fast
+these free electrons must be moving when the current is off. The velocity
+that you so determine is called the Fermi velocity, $v_{ferm}$.\newline
+
+\part
+Let us now turn the 500 mA current back on. Compare the drift velocity,
+$v_{drift}$, to the Fermi velocity, $v_{ferm}$. What fraction of $v_{ferm}$ is $v_{drift}$?\newline
+\end{parts}
+
+
+\begin{solution}
+\begin{parts}
+\part 
+\part 
+\part 
+\part 
+\end{parts}
+\end{solution}
+
+\end{questions}
+\end{document}
