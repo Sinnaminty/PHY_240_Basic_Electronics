@@ -2,6 +2,7 @@
 
 \usepackage{amsmath}
 \usepackage{amssymb}
+%\usepackage{circuit tek} for circuit stuff, prof Elwood said so!!!
 \usepackage[lmargin=71pt, tmargin=1.2in]{geometry}  %For centering solution box
 \thispagestyle{empty}
 
@@ -74,173 +75,125 @@ $v_{drift}$, to the Fermi velocity, $v_{ferm}$. What fraction of $v_{ferm}$ is $
 \begin{solution}
 \begin{parts}
 \part
-To determine the number density of free electrons in copper, we need to calculate how many free electrons exist per unit volume of copper. Here’s how we can do it:
-
+To determine the number density of free electrons in copper, we need to calculate how many free electrons exist per unit volume of copper.
 Given data:
 \begin{itemize}
     \item \textbf{Density of Copper ($\rho$)}: 8.95 g/cm$^3$
     \item \textbf{Atomic mass of Copper ($M$)}: 63.55 amu (atomic mass units)
     \item \textbf{Avogadro's number ($N_A$)}: $6.022 \times 10^{23}$ atoms/mol
 \end{itemize}
-
-The atomic mass unit (amu) is defined as 1/12 of the mass of a carbon-12 atom. The molar mass (in grams per mole) of copper is equivalent to its atomic mass in amu. Therefore:
+The molar mass (in grams per mole) of copper is equivalent to its atomic mass in amu. Therefore:
 \[
-M = 63.55 \, \text{g/mol}
+M = 63.55 \ \text{g/mol}
 \]
 Using the density ($\rho$) and the molar mass ($M$), we can calculate the molar volume of copper:
-
 \[
-\text{Molar volume} = \frac{M}{\rho} = \frac{63.55 \, \text{g/mol}}{8.95 \, \text{g/cm}^3} = 7.1 \, \text{cm}^3/\text{mol}
+\text{Molar volume} = \frac{M}{\rho} = \frac{63.55 \ \text{g/mol}}{8.95 \ \text{g/cm}^3} = 7.1 \ \text{cm}^3/\text{mol}
 \]
-
 This is the volume occupied by one mole of copper atoms.
-
 We can now determine the number of atoms per cubic centimeter:
-
 \[
 \text{Number density of atoms} = \frac{N_A}{\text{Molar volume}} =
 \]
 \[
-\frac{6.022 \times 10^{23} \, \text{atoms/mol}}{7.1 \, \text{cm}^3/\text{mol}} \approx 8.48 \times 10^{22} \, \text{atoms/cm}^3
+\frac{6.022 \times 10^{23} \ \text{atoms/mol}}{7.1 \ \text{cm}^3/\text{mol}} \approx 8.48 \times 10^{22} \ \text{atoms/cm}^3
 \]
-
 Since each copper atom contributes one free electron, the number density of free electrons is the same as the number density of copper atoms:
-
 \[
-\text{Number density of free electrons} \approx 8.48 \times 10^{22} \, \text{electrons/cm}^3
+\text{Number density of free electrons} \approx 8.48 \times 10^{22} \ \text{electrons/cm}^3
 \]
-
 \textbf{The number density of free electrons in copper is approximately $8.48 \times 10^{22}$ electrons per cubic centimeter. This means that in every cubic centimeter of copper, there are around $8.48 \times 10^{22}$ free electrons available to conduct electricity.}
 \newpage
+%-----------------------------------------------------------------------%
 \part
 To determine the average velocity of the electrons, also known as the drift velocity, we can use the following relationship between the current, charge, and drift velocity:
-
 \[
 I = n \cdot A \cdot v_d \cdot e
 \]
-
-Where:
+Where the:
 \begin{itemize}
-    \item $I$ is the current (500 mA = $0.5 \, \text{A}$)
-    \item $n$ is the number density of free electrons (from part (a))
-    \item $A$ is the cross-sectional area of the wire
-    \item $v_d$ is the drift velocity (what we're trying to find)
-    \item $e$ is the elementary charge ($1.6 \times 10^{-19} \, \text{C}$)
+  \item \textbf{Current ($I$):} $0.5 \ \text{A}$
+\item \textbf{Number density of free electrons ($n$):} $8.48 \times 10^{28} \ \text{electrons/m}^3$
+  \item \textbf{Cross-sectional area of the wire ($A$)}
+  \item \textbf{Drift velocity ($v_d$)}
+\item \textbf{Elementary charge ($e$):} $1.6 \times 10^{-19} \ \text{C}$
 \end{itemize}
-
-For an American Wire Gauge (AWG) 14 wire, the diameter is approximately 1.628 mm. The cross-sectional area $A$ of the wire is given by:
-
+Using the formula given for the diameter of an AWG wire, the diameter of the wire is:
 \[
-A = \pi \left(\frac{d}{2}\right)^2 = \pi \left(\frac{1.628 \times 10^{-3} \, \text{m}}{2}\right)^2
+d = 0.127\text{mm} \cdot 92^{\frac{22}{39}} \approx 1.628\text{mm}
 \]
-
+The cross-sectional area $A$ of the wire is given by:
 \[
-A \approx 2.08 \times 10^{-6} \, \text{m}^2
+A = \pi \left(\frac{d}{2}\right)^2 = \pi \left(\frac{1.628 \times 10^{-3} \ \text{m}}{2}\right)^2
 \]
-
+\[
+A \approx 2.08 \times 10^{-6} \ \text{m}^2
+\]
 Rearrange the equation $I = n \cdot A \cdot v_d \cdot e$ to solve for $v_d$:
-
 \[
 v_d = \frac{I}{n \cdot A \cdot e}
 \]
-
 Now, substitute the known values into the equation:
-
 \[
-v_d = \frac{0.5 \, \text{A}}{(8.48 \times 10^{22} \, \text{electrons/m}^3) \cdot (2.08 \times 10^{-6} \, \text{m}^2) \cdot (1.6 \times 10^{-19} \, \text{C})}
+v_d = \frac{0.5 \, \text{A}}{(8.48 \times 10^{28} \, \text{electrons/m}^3) \cdot (2.08 \times 10^{-6} \, \text{m}^2) \cdot (1.6 \times 10^{-19} \, \text{C})}
 \]
-
-Now we calculate the Drift Velocity:
-
 \[
-v_d \approx \frac{0.5}{8.48 \times 10^{22} \times 2.08 \times 10^{-6} \times 1.6 \times 10^{-19}}
+v_d \approx \frac{0.5}{8.48 \times 10^{28} \cdot 2.08 \times 10^{-6} \cdot 1.6 \times 10^{-19}}
 \]
-
 \[
-v_d \approx 1.78 \times 10^{-4} \, \text{m/s}
+  v_d \approx 1.77 \times 10^{-5} \ \text{m/s}
 \]
-
-\textbf{The average drift velocity of the electrons down the wire necessary to produce a current of 500 mA is approximately $1.78 \times 10^{-4} \, \text{m/s}$, or 0.178 mm/s.}
+\textbf{The average drift velocity of the electrons down the wire necessary to produce a current of 500 mA is approximately $0.177 \times 10^{-5} \ \text{m/s}$}
 \newpage
-
+%-----------------------------------------------------------------------%
 \part
-To determine the Fermi velocity ($v_{\text{Fermi}}$) of the electrons, we can follow these steps:
-
-First, we need to convert the energy from electron volts (eV) to joules (J).
 \[
-1 \, \text{eV} = 1.602 \times 10^{-19} \, \text{J}
+7 \ \text{eV} = 1.122 \times 10^{-18} \ \text{J}
 \]
-
-So,
-
-\[
-7 \, \text{eV} = 7 \times 1.602 \times 10^{-19} \, \text{J} = 1.1214 \times 10^{-18} \, \text{J}
-\]
-
 The kinetic energy ($K$) of an electron can be given by the classical expression:
-
 \[
 K = \frac{1}{2} m_e v_{\text{Fermi}}^2
 \]
-
 Where:
 \begin{itemize}
-    \item $K$ is the kinetic energy ($1.1214 \times 10^{-18} \, \text{J}$)
-    \item $m_e$ is the mass of an electron ($9.109 \times 10^{-31} \, \text{kg}$)
-    \item $v_{\text{Fermi}}$ is the Fermi velocity (what we are solving for)
+\item \textbf{Kinetic energy ($K$):} $1.122 \times 10^{-18} \ \text{J}$
+\item \textbf{Mass of an electron $m_e$:} $9.109 \times 10^{-31} \ \text{kg}$
+\item \textbf{Fermi velocity $v_{\text{Fermi}}$}
 \end{itemize}
-
 Rearrange the kinetic energy equation to solve for $v_{\text{Fermi}}$:
-
 \[
 v_{\text{Fermi}} = \sqrt{\frac{2K}{m_e}}
 \]
-
 Substituting the known values:
-
 \[
-v_{\text{Fermi}} = \sqrt{\frac{2 \times 1.1214 \times 10^{-18} \, \text{J}}{9.109 \times 10^{-31} \, \text{kg}}}
+v_{\text{Fermi}} = \sqrt{\frac{2 \cdot 1.122 \times 10^{-18} \ \text{J}}{9.109 \times 10^{-31} \ \text{kg}}}
 \]
-
 \[
-v_{\text{Fermi}} = \sqrt{\frac{2.2428 \times 10^{-18}}{9.109 \times 10^{-31}}}
+v_{\text{Fermi}} = \sqrt{\frac{2.244 \times 10^{-18}}{9.109 \times 10^{-31}}}
 \]
-
 \[
-v_{\text{Fermi}} \approx \sqrt{2.462 \times 10^{12}} \, \text{m/s}
+v_{\text{Fermi}} \approx \sqrt{2.463 \times 10^{12}} \ \text{m/s}
 \]
-
 \[
 v_{\text{Fermi}} \approx 1.57 \times 10^6 \, \text{m/s}
 \]
-
 \textbf{The Fermi velocity ($v_{\text{Fermi}}$) of the electrons in copper, when the current is off, is approximately $1.57 \times 10^6 \, \text{m/s}$.}
 \newpage
-
+%-----------------------------------------------------------------------%
 \part
-To compare the drift velocity $v_{\text{drift}}$ to the Fermi velocity $v_{\text{Fermi}}$ and determine what fraction of $v_{\text{Fermi}}$ is $v_{\text{drift}}$, we can follow these steps:
-
 Given:
 \begin{itemize}
-    \item $v_{\text{drift}} \approx 1.78 \times 10^{-4} \, \text{m/s}$ (from part (b))
-    \item $v_{\text{Fermi}} \approx 1.57 \times 10^6 \, \text{m/s}$ (from part (c))
+  \item $v_{\text{drift}} \approx 1.77 \times 10^{-5} \ \text{m/s}$
+    \item $v_{\text{Fermi}} \approx 1.57 \times 10^6 \ \text{m/s}$
 \end{itemize}
-
+The fraction of $v_{Fermi}$ that is $v_{drift}$ is:
 \[
 \text{Fraction} = \frac{v_{\text{drift}}}{v_{\text{Fermi}}}
 \]
-
-Substituting the given values:
-
 \[
-\text{Fraction} = \frac{1.78 \times 10^{-4} \, \text{m/s}}{1.57 \times 10^6 \, \text{m/s}}
+  \text{Fraction} = \frac{1.77 \times 10^{-5} \ \text{m/s}}{1.57 \times 10^6 \ \text{m/s}} \approx 1.13 \times 10^{-11}
 \]
-
-\[
-\text{Fraction} \approx \frac{1.78 \times 10^{-4}}{1.57 \times 10^6} = 1.13 \times 10^{-10}
-\]
-
-\textbf{The drift velocity $v_{\text{drift}}$ is approximately $1.13 \times 10^{-10}$ times the Fermi velocity $v_{\text{Fermi}}$. This shows that the drift velocity is an extremely small fraction of the Fermi velocity, indicating that even when a current is flowing, the electrons move very slowly on average compared to their random motion due to thermal energy.}
+\textbf{The drift velocity $v_{\text{drift}}$ is approximately $1.13 \times 10^{-11}$ times the Fermi velocity $v_{\text{Fermi}}$}
 \end{parts}
 \end{solution}
 
