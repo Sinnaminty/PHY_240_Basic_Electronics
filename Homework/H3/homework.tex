@@ -31,11 +31,12 @@
     ]{0};
 
     % Forward region (0V to 10V): Dynamic resistance decreasing
+    % NOTE: Old function used was x^2/1000 
     \addplot[
         domain=0:10,
         thick,
         color=green
-    ]{(x^2/1000)}; 
+    ]{(-e^(x) + 1) * ((0.1)/(-e^(10) + 1))}; 
 
     % Forward region (above 10V): R = 100Ω
     \addplot[
@@ -47,7 +48,7 @@
     % Annotating key points
     \node at (-20,0) [anchor=south west] {$R = 5k\Omega$};
     \node at (-5,0) [anchor=south west] {$R = \inf$};
-    \node at (-0.1,0.1) [anchor=south west] {$R = (V^2/1000)\Omega$};
+    \node at (-0.1,0.1) [anchor=south west] {$R = \frac{0.1(-e^{x} + 1)}{-e^{10} + 1}$};
     \node at (10,0.3) [anchor=south west] {$R = 100\Omega$};
   
     \end{axis}
