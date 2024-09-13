@@ -83,8 +83,8 @@ R_2 = \frac{3}{2}R_1
 \draw
   (0,3) to[V=$5V$] (0,0)
   (0,3) -- (2,3)
-  to[R=$R_1\, 1000\Omega$] (2,1.5)
-  to[R=$R_2\, 1500\Omega$] (2,0)
+  to[R=$R_1\, 100\Omega$] (2,1.5)
+  to[R=$R_2\, 150\Omega$] (2,0)
   (2,1.5) to [short, -*, l=$V_{out+}$] (4,1.5)
   (0,0) -- (2,0)
   (2,0) to [short, -*, l=$V_{out-}$] (4,0)
@@ -104,6 +104,21 @@ R_2 = \frac{3}{2}R_1
 \]
 \[
 V_{out} \geq 2.8V
+\]
+\[
+\text{let }R_1=2R, R_2=3R
+\]
+\[
+V_{out} = V_{in} \times \frac{R_{T}}{2R + R_{T}}
+\]
+\[
+R_{T} = \frac{3R \times R_L}{3R + R_L}
+\]
+\[
+V_{out} = V_{in} \times \frac{\frac{3R \times R_L}{3R + R_L}}{2R + \frac{3R \times R_L}{3R + R_L}}
+\]
+\[
+V_{out} = V_{in} \times \frac{\frac{3R \times R_L}{3R + R_L}}{2R + \frac{3R \times R_L}{3R + R_L}}
 \]
 \begin{circuitikz}[american voltages]
 \draw
