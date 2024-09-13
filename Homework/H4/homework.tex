@@ -1,19 +1,122 @@
-\documentclass{article}
+\documentclass[12pt]{exam}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{circuitikz}
+\usepackage[lmargin=71pt, tmargin=1.2in]{geometry}  %For centering solution box
+\thispagestyle{empty}
+
 \begin{document}
-\begin{center}
+
+\nopointsinmargin
+\pointformat{}
+
+\begingroup
+\centering
+\LARGE PHY 240: Basic Electronics\\
+\LARGE Homework Problem H4\\[0.5em]
+\large \today\\
+\large Aiden Rivera\par
+\endgroup
+
+\rule{\textwidth}{0.4pt}
+
+\printanswers
+
+\begin{questions}
+
+\question The Voltage Divider.
+\begin{parts}
+\part
+Draw the schematic for a voltage divider that uses your 5 V source and
+two resistors to achieve a 3 V output voltage. Indicate the resistances of
+your resistors clearly on your schematic, and indicate also where the output
+voltage, $V_{out}$, is to be taken.
+
+\part
+We demand that our output voltage does not sag by more than 0.2 V
+when a load of 1 $k\Omega$ is attached across $V_{out}$. That is, with the load in place,
+$V_{out}$ can not drop below 2.8 V. Check whether your circuit in part (a) satisfies
+this property. If it does not, redraw the circuit with new resistors in place
+that will satisfy this property and give the desired open circuit output voltage
+of 3 V. If your circuit from part (a) already satisfies this requirement, simply
+redraw it here
+
+\part
+In addition to our first two requirements, we also demand that the voltage
+divider dissipate less than 100 mW when no load is attached. Draw the
+schematic for a voltage divider that satisfies all three of our requirements.
+As always, be sure that your resistor values are clearly indicated.
+
+\end{parts}
+\newpage
+
+\begin{solution}
+\begin{parts}
+
+\part
+\[
+V_{out} = V_{in} \times \frac{R_2}{R_1 + R_2}
+\]
+\[
+3V = 5V \times \frac{R_2}{1000\Omega + R_2}
+\]
+\[
+3V = 5V \times \frac{1500\Omega}{1000\Omega + 1500\Omega}
+\]
+
 \begin{circuitikz}[american voltages]
 \draw
-  (0,0) to [short, *-] (6,0)
-  to [V, l_=$\mathrm{j}{\omega}_m \underline{\psi}^s_R$] (6,2) 
-  to [R, l_=$R_R$] (6,4) 
-  to [short, i_=$\underline{i}^s_R$] (5,4) 
-  (0,0) to [open, v^>=$\underline{u}^s_s$] (0,4) 
-  to [short, *- ,i=$\underline{i}^s_s$] (1,4) 
-  to [R, l=$R_s$] (3,4)
-  to [L, l=$L_{\sigma}$] (5,4) 
-  to [short, i_=$\underline{i}^s_M$] (5,3) 
-  to [L, l_=$L_M$] (5,0); 
+  (0,3) to[V=$5V$] (0,0)
+  (0,3) -- (2,3)
+  to[R=$R_1\, 1000\Omega$] (2,1.5)
+  to[R=$R_2\, 1500\Omega$] (2,0)
+  (2,1.5) to [short, -*, l=$V_{out+}$] (4,1.5)
+  (0,0) -- (2,0)
+  (2,0) to [short, -*, l=$V_{out-}$] (4,0)
+  ;
 \end{circuitikz}
-\end{center}
+
+\part
+\[
+R_{new} = \frac{R_2\times 1000\Omega}{R_2 + 1000\Omega}
+\]
+\[
+2.8V = 5V \times \frac{R_{new}}{1000\Omega + R_{new}}
+\]
+\[
+3V = 5V \times \frac{1500\Omega}{1000\Omega + 1500\Omega}
+\]
+
+\begin{circuitikz}[american voltages]
+\draw
+  (0,3) to[V=$5V$] (0,0)
+  (0,3) -- (2,3)
+  to[R=$R_1\, 1000\Omega$] (2,1.5)
+  to[R=$R_2\, 150\Omega$] (2,0)
+  (2,1.5) to [short, -*, l=$V_{out+}$] (4,1.5)
+  to[R=$R_L\, 1000\Omega$] (4,0)
+  (0,0) -- (2,0)
+  (2,0) to [short, -*, l=$V_{out-}$] (4,0)
+  ;
+\end{circuitikz}
+\newpage
+
+\part
+\begin{circuitikz}[american voltages]
+\draw
+  (0,3) to[V=$5V$] (0,0)
+  (0,3) -- (2,3)
+  to[R=$R_1\, 1000\Omega$] (2,1.5)
+  to[R=$R_2\, 5000\Omega$] (2,0)
+  (2,1.5) to [short, -*, l=$V_{out+}$] (4,1.5)
+  (0,0) -- (2,0)
+  (2,0) to [short, -*, l=$V_{out-}$] (4,0)
+  ;
+\end{circuitikz}
+
+\end{parts}
+\end{solution}
+
+\end{questions}
 \end{document}
