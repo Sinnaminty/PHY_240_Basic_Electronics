@@ -120,12 +120,26 @@ V_{out} = V_{in} \times \frac{\frac{3R \times R_L}{3R + R_L}}{2R + \frac{3R \tim
 \[
 V_{out} = V_{in} \times \frac{\frac{3R \times R_L}{3R + R_L}}{2R + \frac{3R \times R_L}{3R + R_L}}
 \]
+After some hard math later\dots
+\[
+R=\frac{\frac{3R_L(V_{out}-V_{in})}{-2V_{out}}-R_L}{3}
+\]
+\[
+R=\frac{\frac{3000\Omega(2.8V-5V)}{-2(2.8V)}-1000\Omega}{3}
+\]
+\[
+R\approx 59\Omega
+\]
+Finally\dots
+\[
+R_1=118\Omega , R_2=177\Omega
+\]
 \begin{circuitikz}[american voltages]
 \draw
   (0,3) to[V=$5V$] (0,0)
   (0,3) -- (2,3)
-  to[R=$R_1\, ?\Omega$] (2,1.5)
-  to[R=$R_2\, ?\Omega$] (2,0)
+  to[R=$R_1\, 118\Omega$] (2,1.5)
+  to[R=$R_2\, 177\Omega$] (2,0)
   (2,1.5) to [short, -*, l=$V_{out+}$] (4,1.5)
   to[R=$R_L\, 1000\Omega$] (4,0)
   (0,0) -- (2,0)
@@ -135,18 +149,34 @@ V_{out} = V_{in} \times \frac{\frac{3R \times R_L}{3R + R_L}}{2R + \frac{3R \tim
 \newpage
 % c)
 \part
+With $R=59\Omega$ 
 \[
 V=IR
 \]
 \[
 P=IV
 \]
+\[
+P=\frac{V^2}{R}
+\]
+\[
+P=\frac{(5V)^2}{5R}
+\]
+\[
+P=\frac{(5V)^2}{5R}
+\]
+\[
+0.1 \text{Watts} \geq \frac{25V}{295\Omega}
+\]
+\[
+0.1 \text{Watts} \gtrapprox 0.08 \text{Watts} 
+\]
 \begin{circuitikz}[american voltages]
 \draw
   (0,3) to[V=$5V$] (0,0)
   (0,3) -- (2,3)
-  to[R=$R_1\, ?\Omega$] (2,1.5)
-  to[R=$R_2\, ?\Omega$] (2,0)
+  to[R=$R_1\, 118\Omega$] (2,1.5)
+  to[R=$R_2\, 177\Omega$] (2,0)
   (2,1.5) to [short, -*, l=$V_{out+}$] (4,1.5)
   to[R=$R_L\, 1000\Omega$] (4,0)
   (0,0) -- (2,0)
