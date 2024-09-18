@@ -1,0 +1,170 @@
+\documentclass[12pt]{exam}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{circuitikz}
+\usepackage[lmargin=71pt, tmargin=1.2in]{geometry}  %For centering solution box
+\thispagestyle{empty}
+
+\begin{document}
+
+\nopointsinmargin
+\pointformat{}
+
+\begingroup
+\centering
+\LARGE PHY 240: Basic Electronics\\
+\LARGE Homework Problem H5\\[0.5em]
+\large \today\\
+\large Aiden Rivera\par
+\endgroup
+
+\rule{\textwidth}{0.4pt}
+
+\printanswers
+
+\begin{questions}
+
+\question When Resistors Play Together.
+\begin{parts}
+\part
+When a resistor with resistance $R_1$ is placed in series with a resis-
+tor of resistance $R_2$, prove that the total resistance of the combination is
+$R_{tot} = R_1 + R_2$. This needs to be an iron-clad proof, with clear steps and
+justifications for each step.
+
+\part
+When a resistor with resistance $R_1$ is placed in parallel with a resistor
+of resistance $R_2$, prove that the total resistance of the combination is $R_{tot} = \frac{R_1 R_2}{R_1 + R_2}$.
+Again, this needs to be an iron-clad proof, with clear steps and
+justifications for each step.
+
+\part
+You are given a black box with three terminals, labeled Rock (R), Paper
+(P), and Scissors (S). You know that the box contains five 100 $\Omega$ resistors
+connected in a particular way between these terminals. Upon measuring the
+resistances between various terminals, you find the following:
+\[
+  R_{RP} = 300 \Omega
+\]
+\[
+  R_{PS} = 250 \Omega
+\]
+\[
+  R_{RS} = 150 \Omega
+\]
+Here, $R_{XY}$ represents the resistance between terminals X and Y when the
+third terminal is not connected to anything.
+Provide a schematic showing how the five resistors are connected within the
+box. Be sure to label the box outputs $R$, $P$, and $S$ as appropriate.
+\end{parts}
+\newpage
+
+\begin{solution}
+\begin{parts}
+% a) 
+\part
+We know that $V=IR$ is true, let that be our guiding light. We can say\dots
+\[
+  V_{total} = IR_{total}
+\]
+So\dots
+\[
+  R_{total}=\frac{V_{total}}{I}
+\]
+By definition:
+\[
+V_{total}=\sum_{i=1}^{n} V_n
+\]
+\[
+V_{total}=V_1+V_2
+\]
+But $V=IR$, so naturally\dots
+\[
+V_{1}=IR_1
+\]
+\[
+V_{2}=IR_2
+\]
+\[
+  R_{total}=\frac{IR_1 + IR_2}{I}
+\]
+\[
+  R_{total}=I\times\frac{R_1 + R_2}{I}
+\]
+Hence,
+\[
+  R_{total}=R_1 + R_2 \, \blacksquare
+\]
+
+\newpage 
+% b)
+\part
+Once again, $V=IR$, but since these resistors are in parallel, the voltage drop across them are the same, however their current is different.
+\[
+  V=I_{total}R_{total}
+\]
+That is to say\dots
+\[
+  R_{total}=\frac{V}{I_{total}}
+\]
+Once again, by definition:
+\[
+I_{total}=\sum_{i=1}^{n} I_n
+\]
+\[
+I_{total}=I_1+I_2
+\]
+But $I=\frac{V}{R}$, so
+\[
+  I_1=\frac{V}{R_1}
+\]
+\[
+  I_2=\frac{V}{R_2}
+\]
+\[
+  R_{total}=\frac{V}{\frac{V}{R_1}+\frac{V}{R_2}}
+\]
+\[
+  R_{total}=\frac{V}{V\times(\frac{1}{R_1}+\frac{1}{R_2})}
+\]
+\[
+  R_{total}=\frac{1}{\frac{1}{R_1}+\frac{1}{R_2}}
+\]
+Now we find a common denominator for this fraction
+\[
+  R_{total}=\frac{1}{\frac{R_1+R_2}{R_1R_2}}
+\]
+Hense, 
+\[
+  R_{total}=\frac{R_1R_2}{R_1+R_2} \, \blacksquare
+\]
+\newpage
+% c)
+\part
+\begin{circuitikz}[american voltages]
+    % Define the terminals R, P, S
+    \node (R) at (0,3) [label=left:R] {};
+    \node (P) at (3,3) [label=right:P] {};
+    \node (S) at (0,0) [label=below:S] {};
+
+    % Draw the resistors between the terminals
+    \draw
+    (R) to[R=$100\,\Omega$, *-] (1.5,3)  % Resistor between R and midpoint
+    to[R=$100\,\Omega$, -*] (P)          % Resistor between midpoint and P
+
+    (P) to[R=$100\,\Omega$] (3,0)    % Resistor between P and S
+    to[short](S)
+
+    % Draw two resistors in parallel between R and S
+    (R) to[short](0,2.5)
+    (-1.5,2.5) to[short](0,2.5)
+    (-1.5,2.5) to[R=$100\,\Omega$] (-1.5,0)
+    (0,2.5) to[R=$100\,\Omega$] (0,0)
+    (-1.5,0) to[short, -*](0,0);
+
+\end{circuitikz}
+\end{parts}
+\end{solution}
+\end{questions}
+\end{document}
