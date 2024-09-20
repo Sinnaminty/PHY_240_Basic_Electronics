@@ -142,26 +142,34 @@ Hense,
 \newpage
 % c)
 \part
+\[
+R_{RP}=300\Omega
+\]
+\[
+R_{PS}=250\Omega
+\]
+\[
+R_{RS}=150\Omega
+\]
+The simpliest solution is to assume that $R_{RP}$ has 3 resistors in series.
 \begin{circuitikz}[american voltages]
     % Define the terminals R, P, S
     \node (R) at (0,3) [label=left:R] {};
-    \node (P) at (3,3) [label=right:P] {};
-    \node (S) at (0,0) [label=below:S] {};
+    \node (M) at (1.5,3) [] {};
+    \node (P) at (4.5,3) [label=right:P] {};
+    \node (S) at (3,0) [label=below:S] {};
 
     % Draw the resistors between the terminals
     \draw
-    (R) to[R=$100\,\Omega$, *-] (1.5,3)  % Resistor between R and midpoint
-    to[R=$100\,\Omega$, -*] (P)          % Resistor between midpoint and P
+    (R) to[R=$100\,\Omega$, *-*] (1.5,3)
+    to[R=$100\,\Omega$] (3,3)
+    to[R=$100\,\Omega$, -*] (P)
 
-    (P) to[R=$100\,\Omega$] (3,0)    % Resistor between P and S
-    to[short](S)
-
-    % Draw two resistors in parallel between R and S
-    (R) to[short](0,2.5)
-    (-1.5,2.5) to[short](0,2.5)
-    (-1.5,2.5) to[R=$100\,\Omega$] (-1.5,0)
-    (0,2.5) to[R=$100\,\Omega$] (0,0)
-    (-1.5,0) to[short, -*](0,0);
+    (M) to[short] (1.5,2.5)
+    (1,2.5) to[short](2,2.5)
+    (1,0) to[R=$100\,\Omega$] (1,2.5)
+    (2,2.5) to[R=$100\,\Omega$] (2,0)
+    (1,0) to[short, -*] (S);
 
 \end{circuitikz}
 \end{parts}
