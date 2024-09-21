@@ -1,0 +1,276 @@
+\documentclass[12pt]{exam}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{circuitikz}
+\usepackage[lmargin=71pt, tmargin=1.2in]{geometry}  %For centering solution box
+\thispagestyle{empty}
+
+\begin{document}
+
+\nopointsinmargin
+\pointformat{}
+
+\begingroup
+\centering
+\LARGE PHY 240: Basic Electronics\\
+\LARGE Homework Problem H2\\[0.5em]
+\large \today\\
+\large Aiden Rivera\par
+\endgroup
+
+\rule{\textwidth}{0.4pt}
+
+\printanswers
+
+\begin{questions}
+
+\question Voltages and Currents in Eight Simple Circuits.
+\begin{parts}
+\part
+You are given a battery and three identical light bulbs (incandescent
+bulbs). Provide a schematic for a circuit containing these four elements in
+which the current through Bulb 1, $I_1$, is twice that through Bulb 2, $I_2$.
+Neither of these currents can be zero. Use appropriate schematic symbols
+for your circuit elements, and be sure to label your bulbs 1, 2, and 3
+
+\part
+Now provide a schematic for a circuit containing these four elements in
+which the voltage across Bulb 1, $V_1$, is twice that across Bulb 2, $V_2$. Neither
+of these voltages can be zero. Use appropriate schematic symbols and label
+your bulbs 1, 2, and 3.
+
+\part
+Redraw your circuit from part (a) with an ammeter included in a config-
+uration that will allow the ammeter to measure the current flowing through
+Bulb 2. Use the appropriate schematic symbol for an ideal ammeter.
+
+\part
+Redraw your circuit from part (b) with a voltmeter included in a config-
+uration that will allow the voltmeter to measure the voltage across Bulb 2.
+Use the appropriate schematic symbol for an ideal voltmeter.
+
+\part
+Draw the schematic for a circuit in which a 10 V battery, a 100 $\Omega$ resistor,
+and a 220$\Omega$ resistor are all in series with one another. Determine the voltage
+across each resistor and the current flowing through each resistor.
+
+\part
+Draw the schematic for a circuit in which a 10 V battery, a 100 $\Omega$ resistor,
+and a 220$\Omega$ resistor are all in parallel with one another. Determine the voltage
+across each resistor and the current flowing through each resistor.
+
+\part
+Draw the schematic for a circuit in which a 100 mA current source, a 100 $\Omega$
+resistor, and a 220 $\Omega$ resistor are all in series with one another. Determine
+the voltage across each resistor and the current flowing through each resistor.
+Use an appropriate schematic symbol for an ideal current source.
+
+\part
+Draw the schematic for a circuit in which a 100 mA current source, a
+100 $\Omega$ resistor, and a 220 $\Omega$ resistor are all in parallel with one another.
+Determine the voltage across each resistor and the current flowing through
+each resistor.
+\end{parts}
+\newpage
+
+\begin{solution}
+\begin{parts}
+
+% a) 
+\part
+\[
+I_1=2I_2
+\]
+\begin{circuitikz}[american voltages]
+\draw
+(0,0) to[battery] (0,2)
+to[bulb, l=$1$] (2,2)
+to[bulb, l=$2$] (4,2)
+-- (4,-2)
+-- (0,-2)
+-- (0,0)
+(2,0) to[bulb, l=$3$] (4,0)
+(2,2) to[short] (2,0);
+\end{circuitikz}
+\newpage 
+
+% b)
+\part
+\[
+V_1=2V_2
+\]
+\begin{circuitikz}[american voltages]
+\draw
+(0,0) to[battery] (0,2)
+to[bulb, l=$2$] (2,2)
+to[bulb, l=$1$] (4,2)
+-- (4,-2)
+-- (0,-2)
+-- (0,0)
+(2,0) to[bulb, l=$3$] (4,0)
+(2,2) to[short] (2,0);
+
+\end{circuitikz}
+\newpage
+
+% c)
+\part
+\[
+I_1=2I_2
+\]
+\begin{circuitikz}[american voltages]
+\draw
+(0,0) to[battery] (0,2)
+to[bulb, l=$1$] (2,2)
+to[ammeter] (4,2)
+to[bulb, l=$2$] (6,2)
+-- (6,-2)
+-- (0,-2)
+-- (0,0)
+(4,0) to[bulb, l=$3$] (6,0)
+(4,2) to[short] (4,0);
+\end{circuitikz}
+\newpage
+
+% d)
+\part
+\[
+V_1=2V_2
+\]
+\begin{circuitikz}[american voltages]
+\draw
+(0,0) to[battery] (0,2)
+to[bulb, l=$2$] (2,2)
+to[bulb, l=$1$] (4,2)
+-- (4,-2)
+-- (0,-2)
+-- (0,0)
+(2,0) to[bulb, l=$3$] (4,0)
+(2,2) to[short] (2,0)
+(0,2) to[short] (0,4)
+to[voltmeter] (2,4)
+-- (2,0)
+;
+\end{circuitikz}
+\newpage
+
+% e)
+\part
+\[
+V=IR
+\]
+\[
+10V=I320\Omega
+\]
+\[
+I=0.03125A
+\]
+Since this circuit is in series, the current must be constant everywhere.
+\[
+V_1=(0.03125A)(100\Omega)=3.125V
+\]
+\[
+V_2=(0.03125A)(220\Omega)=6.875V
+\]
+\begin{circuitikz}[american voltages]
+\draw
+(0,0) to[V=$10V$] (0,2)
+to[R=$R_1 100\Omega$] (2,2)
+to[R=$R_2 220\Omega$] (4,2)
+-- (4,0)
+-- (0,0)
+;
+\end{circuitikz}
+\newpage
+
+% f)
+\part
+\[
+V=IR
+\]
+\[
+10V=I(68.75\Omega)
+\]
+\[
+I\approx0.145A
+\]
+Since this circuit is in parallel, the voltage must be constant everywhere.
+\[
+I_1=\frac{10V}{100\Omega} = 0.1A
+\]
+\[
+I_2=\frac{10V}{220\Omega} \approx 0.045A
+\]
+\begin{circuitikz}[american voltages]
+\draw
+(0,0) to[V=$10V$] (0,2)
+-- (4,2)
+to[R=$R_2 220\Omega$] (4,0)
+-- (0,0)
+(2,2) to[R=$R_1 100\Omega$] (2,0)
+;
+\end{circuitikz}
+\newpage
+
+% g)
+\part
+\[
+V=IR
+\]
+\[
+V=(0.1A)320\Omega
+\]
+\[
+V=32V
+\]
+Since this circuit is in series, the current must be constant everywhere.
+\[
+V_1=(0.1A)(100\Omega)=10V
+\]
+\[
+V_2=(0.1A)(220\Omega)=22V
+\]
+\begin{circuitikz}[american voltages]
+\draw
+(0,0) to[I=$0.1A$] (0,2)
+to[R=$R_1 100\Omega$] (2,2)
+to[R=$R_2 220\Omega$] (4,2)
+-- (4,0)
+-- (0,0)
+;
+\end{circuitikz}
+\newpage
+
+% h)
+\part
+\[
+V=IR
+\]
+\[
+V=0.1A(68.75\Omega)
+\]
+\[
+V=6.875V
+\]
+Since this circuit is in parallel, the voltage must be constant everywhere.
+\[
+I_1=\frac{6.875V}{100\Omega} = 0.06875A
+\]
+\[
+I_2=\frac{6.875V}{220\Omega} \approx 0.03A
+\]
+\begin{circuitikz}[american voltages]
+\draw
+(0,0) to[I=$0.1A$] (0,2)
+-- (4,2)
+to[R=$R_2 220\Omega$] (4,0)
+-- (0,0)
+(2,2) to[R=$R_1 100\Omega$] (2,0)
+;
+\end{circuitikz}
+
+\end{parts}
+\end{solution}
+\end{questions}
+\end{document}
