@@ -22,18 +22,30 @@
 \rule{\textwidth}{0.4pt}
 
 \printanswers
+\center
+\begin{circuitikz}[american voltages]
+    \node (a) at (4,2) [label=right:a] {};
+    \node (b) at (4,0) [label=right:b] {};
 
+    \draw
+    (a) to[short, o-] (2,2)
+    to[R,l_=$30\,\Omega$] (0,2)
+    to[battery, l_=18V] (0,0)
+    -- (2,0)
+    to[R,l_=$20\,\Omega$, -o] (b)
+    (2,2) to[R=$60\,\Omega$] (2,0)
+    ;
+\end{circuitikz}
 \begin{questions}
-
-\question Monsieur Thévenin
-\begin{parts}
+\question \textbf{Monsieur Th\'evenin}\\
 Consider the circuit above, in which an unkown load may eventually be placed
 between the a and b terminals. We know that this circuit may be replaced by
-a Thévenin Equivalent Circuit consisting of a single voltage source in series
+a Th\'evenin Equivalent Circuit consisting of a single voltage source in series
 with a single resistance.
 
+\begin{parts}
 \part
-Determine the Thévenin Equivalent Circuit for this circuit and draw it in
+Determine the Th\'evenin Equivalent Circuit for this circuit and draw it in
 the space below. Be sure to label the voltage source and resistance in your
 drawing, and include and indicate the terminals a and b.
 
@@ -51,11 +63,72 @@ Demonstrate that your equivalent circuit is correct by doing the following:
 \begin{parts}
 % a) 
 \part
-Meow!
+Check the open circuit voltage.\\
+Let: $R_1 = 30\,\Omega,\, R_2 = 60\,\Omega,\, R_3 = 20\,\Omega$
+\[
+R_{total}=R_1 + R_2 + R_3 = 110\,\Omega
+\]
+\[
+V_{oc}=V_{source} \times \frac{R_1 + R_2}{R_{total}}
+\]
+\[
+V_{oc}=18V \times \frac{90\,\Omega}{110\,\Omega} \approx 14.727V
+\]
+Now, we check the short circuit current\dots
+\[
+  I_{short}=\frac{18V}{90\,\Omega}=0.2A
+\]
+With $V_{open}=14.727V$ and $I_{short}=0.2A$
+\[
+R_{th} = \frac{V_{open}}{I_{short}}
+\]
+\[
+R_{th} = \frac{14.727V}{0.2A} \approx 73.636\,\Omega
+\]
+\begin{circuitikz}[american voltages]
+    \node (a) at (2,2) [label=right:a] {};
+    \node (b) at (2,0) [label=right:b] {};
+
+    \draw
+    (a) to[R, l_=$73.636\,\Omega$, o-] (0,2)
+    to[battery, l_=$14.727V$] (0,0)
+    to[short, -o] (b)
+    ;
+\end{circuitikz}
 \newpage 
 % b)
 \part
-MeMeow!
+\begin{itemize}
+\item \textbf{Original Circuit}
+
+\begin{circuitikz}[american voltages]
+    \node (a) at (4,2) [label=right:a] {};
+    \node (b) at (4,0) [label=right:b] {};
+
+    \draw
+    (a) to[short, o-] (2,2)
+    to[R,l_=$30\,\Omega$] (0,2)
+    to[battery, l_=18V] (0,0)
+    -- (2,0)
+    to[R,l_=$20\,\Omega$, -o] (b)
+    (2,2) to[R=$60\,\Omega$] (2,0)
+    (a) to[R=$R_{load}\, 20\,\Omega$] (b)
+    ;
+\end{circuitikz}
+\item \textbf{Equivalent Circuit}
+\begin{circuitikz}[american voltages]
+    \node (a) at (2,2) [label=right:a] {};
+    \node (b) at (2,0) [label=right:b] {};
+
+    \draw
+    (a) to[R, l_=$73.636\,\Omega$, o-] (0,2)
+    to[battery, l_=$14.727V$] (0,0)
+    to[short, -o] (b)
+    (a) to[R=$R_{load}\, 20\,\Omega$] (b)
+    ;
+\end{circuitikz}
+\end{itemize}
+Meowmeowmeow.
 \end{parts}
 \end{solution}
 \end{questions}
