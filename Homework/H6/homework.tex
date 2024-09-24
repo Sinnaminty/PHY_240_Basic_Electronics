@@ -22,7 +22,7 @@
 \rule{\textwidth}{0.4pt}
 
 \printanswers
-\center
+\begin{center}
 \begin{circuitikz}[american voltages]
     \node (a) at (4,2) [label=right:a] {};
     \node (b) at (4,0) [label=right:b] {};
@@ -36,6 +36,7 @@
     (2,2) to[R=$60\,\Omega$] (2,0)
     ;
 \end{circuitikz}
+\end{center}
 \begin{questions}
 \question \textbf{Monsieur Th\'evenin}\\
 Consider the circuit above, in which an unkown load may eventually be placed
@@ -64,43 +65,7 @@ Demonstrate that your equivalent circuit is correct by doing the following:
 % a) 
 \part
 Check the open circuit voltage.\\
-Let: $R_1 = 30\,\Omega,\, R_2 = 60\,\Omega,\, R_3 = 20\,\Omega$
-\[
-R_{total}=R_1 + R_2 + R_3 = 110\,\Omega
-\]
-\[
-V_{oc}=V_{source} \times \frac{R_1 + R_2}{R_{total}}
-\]
-\[
-V_{oc}=18V \times \frac{90\,\Omega}{110\,\Omega} \approx 14.727V
-\]
-Now, we check the short circuit current\dots
-\[
-  I_{short}=\frac{18V}{90\,\Omega}=0.2A
-\]
-With $V_{open}=14.727V$ and $I_{short}=0.2A$
-\[
-R_{th} = \frac{V_{open}}{I_{short}}
-\]
-\[
-R_{th} = \frac{14.727V}{0.2A} \approx 73.636\,\Omega
-\]
-\begin{circuitikz}[american voltages]
-    \node (a) at (2,2) [label=right:a] {};
-    \node (b) at (2,0) [label=right:b] {};
-
-    \draw
-    (a) to[R, l_=$73.636\,\Omega$, o-] (0,2)
-    to[battery, l_=$14.727V$] (0,0)
-    to[short, -o] (b)
-    ;
-\end{circuitikz}
-\newpage 
-% b)
-\part
-\begin{itemize}
-\item \textbf{Original Circuit}
-
+\begin{center}
 \begin{circuitikz}[american voltages]
     \node (a) at (4,2) [label=right:a] {};
     \node (b) at (4,0) [label=right:b] {};
@@ -112,23 +77,127 @@ R_{th} = \frac{14.727V}{0.2A} \approx 73.636\,\Omega
     -- (2,0)
     to[R,l_=$20\,\Omega$, -o] (b)
     (2,2) to[R=$60\,\Omega$] (2,0)
-    (a) to[R=$R_{load}\, 20\,\Omega$] (b)
     ;
 \end{circuitikz}
-\item \textbf{Equivalent Circuit}
+\end{center}
+\[
+  18V=I(90\,\Omega)=0.2A
+\]
+\[
+  V_a = (0.2A)(30 \,\Omega) = 6V
+\]
+\[
+  V_b = (0.2A)(60 \,\Omega) = 12V
+\]
+So the Voltage drop is 12V from terminal a to b.\\
+Now, we check the short circuit current\dots
+
+\begin{center}
+\begin{circuitikz}[american voltages]
+    \node (a) at (4,2) [label=right:a] {};
+    \node (b) at (4,0) [label=right:b] {};
+
+    \draw
+    (a) to[short, o-] (2,2)
+    to[R,l_=$30\,\Omega$] (0,2)
+    to[short] (0,0)
+    -- (2,0)
+    to[R,l_=$20\,\Omega$, -o] (b)
+    (2,2) to[R=$60\,\Omega$] (2,0)
+    ;
+\end{circuitikz}
+\end{center}
+\[
+  R_{th} =\frac{1800\,\Omega}{90\,\Omega} + 20\,\Omega = 40\,\Omega
+\]
+%\[
+%  I=\frac{V}{R}=\frac{18V}{30\,\Omega + (\frac{(60\,\Omega)(20\,\Omega)}{80\,\Omega})} = \frac{18V}{45\,\Omega} = 0.4A
+%\]
+%\[
+%  V_a=(0.4A)(30\,\Omega) = 12V
+%\]
+%The 60 Ohm and 20 Ohm resistor are in parallel, which means that they must share the same voltage drop of 6 Volts.
+%\[
+%  6V = I_1(60\,\Omega)=0.1A
+%\]
+%\[
+%  6V = I_2(20\,\Omega)=0.3A
+%\]
+\begin{center}
 \begin{circuitikz}[american voltages]
     \node (a) at (2,2) [label=right:a] {};
     \node (b) at (2,0) [label=right:b] {};
 
     \draw
-    (a) to[R, l_=$73.636\,\Omega$, o-] (0,2)
-    to[battery, l_=$14.727V$] (0,0)
+    (a) to[R, l_=$40\,\Omega$, o-] (0,2)
+    to[battery, l_=$12V$] (0,0)
     to[short, -o] (b)
-    (a) to[R=$R_{load}\, 20\,\Omega$] (b)
     ;
 \end{circuitikz}
+\end{center}
+\newpage 
+% b)
+\part
+\begin{itemize}
+\item \textbf{Original Circuit}
+
+\begin{center}
+\begin{circuitikz}[american voltages]
+    \node (a) at (4,2) [label=right:a] {};
+    \node (b) at (4,0) [label=right:b] {};
+
+    \draw
+    (a) to[short, o-] (2,2)
+    to[R,l_=$30\,\Omega$] (0,2)
+    to[battery, l_=18V] (0,0)
+    -- (2,0)
+    to[R,l_=$20\,\Omega$, -o] (b)
+    (2,2) to[R=$60\,\Omega$] (2,0)
+    (a) to[R=$20\,\Omega$] (b)
+    ;
+\end{circuitikz}
+\end{center}
+\[
+  18V=I(30+\frac{2400\,\Omega}{100\,\Omega}) \approx 0.333A
+\]
+\[
+  V_1=(0.333A)(30\,\Omega) = 10V 
+\]
+\[
+  V_2=V_{load}+V_3
+\]
+\[
+  I_{load}=I_3
+\]
+\[
+  I_2 = \frac{8V}{60\,\Omega} \approx 0.133A
+\]
+So $I_{load}=0.2A$
+\[
+  V_{load}=(0.2A)(20\,\Omega)=4V
+\]
+\item \textbf{Equivalent Circuit}
+\begin{center}
+\begin{circuitikz}[american voltages]
+    \node (a) at (2,2) [label=right:a] {};
+    \node (b) at (2,0) [label=right:b] {};
+
+    \draw
+    (a) to[R, l_=$40\,\Omega$, o-] (0,2)
+    to[battery, l_=$12V$] (0,0)
+    to[short, -o] (b)
+    (a) to[R=$20\,\Omega$] (b)
+    ;
+\end{circuitikz}
+\end{center}
+\[
+  12V=I(60\,\Omega)=0.2A
+\]
+\[
+  V=0.2(20\,\Omega)=4V
+\]
 \end{itemize}
-Meowmeowmeow.
+They're both the same! woo!!!!
 \end{parts}
 \end{solution}
 \end{questions}
