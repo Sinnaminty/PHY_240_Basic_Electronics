@@ -1,0 +1,185 @@
+\documentclass[12pt]{exam}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{circuitikz}
+\usepackage[lmargin=71pt, tmargin=1.2in]{geometry}  %For centering solution box
+\thispagestyle{empty}
+
+\begin{document}
+
+\nopointsinmargin
+\pointformat{}
+
+\begingroup
+\centering
+\LARGE PHY 240: Basic Electronics\\
+\LARGE Homework Problem H7\\[0.5em]
+\large \today\\
+\large Aiden Rivera\par
+\endgroup
+
+\rule{\textwidth}{0.4pt}
+
+\printanswers
+\begin{center}
+\begin{circuitikz}[american voltages]
+    \node (a) at (4,2) [label=right:a] {};
+    \node (b) at (4,0) [label=right:b] {};
+
+    \draw
+    (a) to[short, o-] (2,2)
+    to[R,l_=$30\,\Omega$] (0,2)
+    to[battery, l_=18V] (0,0)
+    -- (2,0)
+    to[R,l_=$20\,\Omega$, -o] (b)
+    (2,2) to[R=$60\,\Omega$] (2,0)
+    ;
+\end{circuitikz}
+\end{center}
+\begin{questions}
+\question \textbf{Monsieur Th\'evenin}\\
+Consider the circuit above, in which an unknown load may eventually be placed
+between the a and b terminals. We know that this circuit may be replaced by
+a Norton Equivalent Circuit consisting of a single current source in series
+with a single resistance.
+
+\begin{parts}
+\part
+Determine the Norton Equivalent Circuit for this circuit and draw it in
+the space below. Be sure to label the current source and resistance in your
+drawing, and include and indicate the terminals a and b.
+
+\part
+Demonstrate that your equivalent circuit is correct by doing the following:
+\begin{itemize}
+    \item Attach a 20 $\Omega$ load between terminals a and b of the original circuit, and determine the current flowing through the load and the voltage.
+    \item Attach a 20 $\Omega$ load between terminals a and b of your equivalent circuit, and determine the current flowing through the load and the voltage.
+    \item Show that your results for the load current and voltage are the same for these two circuits across the load.
+\end{itemize}
+\end{parts}
+\newpage
+
+\begin{solution}
+\begin{parts}
+% a) 
+\part
+Check the open circuit current.\\
+\begin{center}
+\begin{circuitikz}[american voltages]
+    \node (a) at (4,2) [label=right:a] {};
+    \node (b) at (4,0) [label=right:b] {};
+
+    \draw
+    (a) to[short, o-] (2,2)
+    to[R,l_=$30\,\Omega$] (0,2)
+    to[battery, l_=18V] (0,0)
+    -- (2,0)
+    to[R,l_=$20\,\Omega$, -o] (b)
+    (2,2) to[R=$60\,\Omega$] (2,0)
+    ;
+\end{circuitikz}
+\end{center}
+\[
+  18V=I(90\,\Omega)=0.2A
+\]
+So the current is 0.2A from terminal a to b.\\
+Now, we find the resistance\dots
+
+\begin{center}
+\begin{circuitikz}[american voltages]
+    \node (a) at (4,2) [label=right:a] {};
+    \node (b) at (4,0) [label=right:b] {};
+
+    \draw
+    (a) to[short, o-] (2,2)
+    to[R,l_=$30\,\Omega$] (0,2)
+    to[short] (0,0)
+    -- (2,0)
+    to[R,l_=$20\,\Omega$, -o] (b)
+    (2,2) to[R=$60\,\Omega$] (2,0)
+    ;
+\end{circuitikz}
+\end{center}
+\[
+  R_{th} =\frac{1800\,\Omega}{90\,\Omega} + 20\,\Omega = 40\,\Omega
+\]
+\begin{center}
+\begin{circuitikz}[american voltages, american currents]
+    \node (a) at (2,2) [label=right:a] {};
+    \node (b) at (2,0) [label=right:b] {};
+
+    \draw
+    (a) to[R, l_=$40\,\Omega$, o-] (0,2)
+    to[I, l_=$0.2A$] (0,0)
+    to[short, -o] (b)
+    ;
+\end{circuitikz}
+\end{center}
+\newpage 
+% b)
+\part
+\begin{itemize}
+\item \textbf{Original Circuit}
+
+\begin{center}
+\begin{circuitikz}[american voltages]
+    \node (a) at (4,2) [label=right:a] {};
+    \node (b) at (4,0) [label=right:b] {};
+
+    \draw
+    (a) to[short, o-] (2,2)
+    to[R,l_=$30\,\Omega$] (0,2)
+    to[battery, l_=18V] (0,0)
+    -- (2,0)
+    to[R,l_=$20\,\Omega$, -o] (b)
+    (2,2) to[R=$60\,\Omega$] (2,0)
+    (a) to[R=$20\,\Omega$] (b)
+    ;
+\end{circuitikz}
+\end{center}
+\[
+  18V=I(30+\frac{2400\,\Omega}{100\,\Omega}) \approx 0.333A
+\]
+\[
+  V_1=(0.333A)(30\,\Omega) = 10V 
+\]
+\[
+  V_2=V_{load}+V_3
+\]
+\[
+  I_{load}=I_3
+\]
+\[
+  I_2 = \frac{8V}{60\,\Omega} \approx 0.133A
+\]
+So $I_{load}=0.2A$
+\[
+  V_{load}=(0.2A)(20\,\Omega)=4V
+\]
+\item \textbf{Equivalent Circuit}
+\begin{center}
+\begin{circuitikz}[american voltages, american currents]
+    \node (a) at (2,2) [label=right:a] {};
+    \node (b) at (2,0) [label=right:b] {};
+
+    \draw
+    (a) to[R, l_=$40\,\Omega$, o-] (0,2)
+    to[I, l_=$0.2A$] (0,0)
+    to[short, -o] (b)
+    (a) to[R=$20\,\Omega$] (b)
+    ;
+\end{circuitikz}
+\end{center}
+\[
+  I_{load} = 0.2A
+\]
+\[
+  V=(0.2A)(20\,\Omega)=4V
+\]
+\end{itemize}
+They're both the same! woo!!!!
+\end{parts}
+\end{solution}
+\end{questions}
+\end{document}
