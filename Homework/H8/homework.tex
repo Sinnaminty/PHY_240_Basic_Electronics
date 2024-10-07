@@ -1,0 +1,146 @@
+\documentclass[12pt]{exam}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{circuitikz}
+\usepackage[lmargin=71pt, tmargin=1.2in]{geometry}  %For centering solution box
+\thispagestyle{empty}
+
+\begin{document}
+
+\nopointsinmargin
+\pointformat{}
+
+\begingroup
+\centering
+\LARGE PHY 240: Basic Electronics\\
+\LARGE Homework Problem H8\\[0.5em]
+\large \today\\
+\large Aiden Rivera\par
+\endgroup
+
+\rule{\textwidth}{0.4pt}
+
+\printanswers
+\begin{questions}
+\question \textbf{Real Badderies.}\\
+\begin{parts}
+
+\part
+A battery with an open circuit terminal voltage of 4 V has a terminal
+voltage of 3.7 V when connected to a 100 $\Omega$ load. Determine the internal
+resistance of this battery.
+
+\part
+The result from part (a) makes us unhappy, as we would like to use a
+voltage source that doesn’t sag so much. Suppose we have two of the batteries
+from part (a), and use them in parallel to drive the 100 $\Omega$ load. Assuming
+that the two batteries are identical, what is the terminal voltage with the load
+attached? Has the parallel battery configuration helped to create a “stiffer”
+(less saggy) voltage source? Explain clearly how you arrive at your result.
+
+\part
+Ok. Last question about batteries. When a particular battery is attached
+to a 300 $\Omega$ load, it is found that 19.6 mA flows through the load. When the
+300 $\Omega$ load is replaced by a 100 $\Omega$ load, it is found that 56.6 mA flows through
+the new load.\\
+Does this provide evidence that the battery has an internal resistance? If not,
+explain clearly why not. If so, determine the value of the battery’s internal
+resistance.
+\end{parts}
+\newpage
+
+\begin{solution}
+\begin{parts}
+% a) 
+\part
+\[
+  3.7V=I(100 \Omega\,)
+\]
+\[
+  I=0.037A
+\]
+\[
+  V=I(R_{load} + R_{internal})
+\]
+\[
+  V=IR_{load} + IR_{internal}
+\]
+\[
+  V=V_{load} + IR_{internal}
+\]
+\[
+ IR_{internal} =  V - V_{load} 
+\]
+\[
+  R_{internal} = \frac{V - V_{load}}{I} 
+\]
+\[
+  R_{internal} = \frac{4V - 3.7V}{0.037A} 
+\]
+\[
+  R_{internal} \approx 8.11 \Omega\,
+\]
+\newpage 
+% b)
+\part
+Batteries in parallel will have the same voltage 4V, but will have a lowered resistance governed by the resistors in parallel equation.\\
+\[
+  \frac{1}{R_{bats}} = \frac{1}{R_1} + \frac{1}{R_2}
+\]
+\[
+  R_{bats} = \frac{R_1 + R_2}{R_1R_2}
+\]
+\[
+  R_{bats} = \frac {(8.11\Omega\,)(8.11\Omega\,)}{8.11\Omega\, + 8.11\Omega\,}
+\]
+\[
+  R_{bats} \approx 4.06\Omega\,
+\]
+Now with the resistance of the batteries, we can find the current and voltage through the load.\\
+\[
+  R_{tot} = R_{load} + R_{bats} = 104.06\Omega\,
+\]
+\[
+  I = \frac{V}{R} = \frac{4V}{104.06\Omega\,} \approx 0.038A
+\]
+\[
+V = IR = (0.038A)(104.06\Omega\,) \approx 3.999V
+\]
+As we can see, wiring 2 batteries in parallel has created a "stiffer" voltage source by mitigating the internal resistances of the batteries.
+\newpage 
+% c)
+\part
+\[
+V = IR = (0.0196A)(300\Omega\,) = 5.88V
+\]
+\[
+V = IR = (0.0566A)(100\Omega\,) = 5.66V
+\]
+Because the current changes on the change of a load, we can assume that this battery has internal resistance.\\
+\[
+  V = (0.0196A)(300\Omega\, + R_{internal})
+\]
+\[
+  V = (0.0566A)(100\Omega\, + R_{internal})
+\]
+\[
+  0 = (0.0196A)(300\Omega\, + R_{internal}) - (0.0566A)(100\Omega\, + R_{internal})
+\]
+\[
+  0 = (5.88V + (0.0196A)(R_{internal})) - (5.66V + (0.0566A)(R_{internal}))
+\]
+\[
+  0 = 0.22V - (0.037A)(R_{internal}) 
+\]
+\[
+ (0.037A)(R_{internal}) = 0.22V
+\]
+\[
+  R_{internal} = \frac{0.22V}{0.037A} \approx 5.95\Omega\,
+\]
+
+\end{parts}
+\end{solution}
+\end{questions}
+\end{document}
