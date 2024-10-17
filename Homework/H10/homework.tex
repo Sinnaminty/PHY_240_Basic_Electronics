@@ -1,0 +1,107 @@
+\documentclass[12pt]{exam}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{circuitikz}
+\usepackage[lmargin=71pt, tmargin=1.2in]{geometry}  %For centering solution box
+\thispagestyle{empty}
+
+\begin{document}
+
+\nopointsinmargin
+\pointformat{}
+
+\begingroup
+\centering
+\LARGE PHY 240: Basic Electronics\\
+\LARGE Homework Problem H10\\[0.5em]
+\large \today\\
+\large Aiden Rivera\par
+\endgroup
+
+\rule{\textwidth}{0.4pt}
+
+\printanswers
+\begin{questions}
+\question \textbf{Capacitor Review Problem.}\\
+\begin{parts}
+\part
+Draw the schematic diagram for a circuit containing a 10 V DC source,\\
+a 1.2 k$\Omega$ resistor, and a 250 nF capacitor all in series.
+
+\part
+At a particular instant in time that we shall call $t = 0$, the charge on the
+plate of the capacitor facing the positive side of the 10 V supply is 4 $\mu$C. Of
+course, this means that the charge on the capacitor plate facing the negative
+side of the 10 V supply is -4 $\mu$C. Determine the current flowing through the
+resistor at time $t = 0$. Indicate the direction in which this current is flowing
+by placing a labeled arrow next to the resistor on your schematic diagram.
+
+\part
+If we wait for a very long time (until $t = \infty$), current will cease flowing
+in the circuit. After the current has stopped flowing, how much charge is on
+the positive plate of the capacitor? Which plate is positive at this point?
+
+\part
+Between times $t = 0$ and $t = \infty$, how much charge passes through the
+resistor?
+
+\part
+How much energy is stored by the capacitor at time $t = 0$? How much is
+stored by the capacitor at $t = \infty$?
+
+\end{parts}
+\newpage
+
+\begin{solution}
+\begin{parts}
+% a) 
+\part
+Get ur schematic here!\\
+\begin{center}
+\begin{circuitikz}[american voltages]
+    \draw
+    (0,2) to[battery1, l_=10V] (0,0)
+    -- (4,0)
+    to[C, l_=$250\,\text{nF}$] (4,2)
+    -- (0,2)
+
+    (2,0) to[R=$1.2\,\text{k}\Omega$] (2,2)
+    ;
+\end{circuitikz}
+\end{center}
+\newpage 
+
+% b)
+\part
+Anotha one!\\
+\begin{center}
+\begin{circuitikz}[american voltages]
+    \draw
+    (0,2) to[battery1, l_=10V] (0,0)
+    -- (4,0)
+    to[C, l_=$250\,\text{nF}$] (4,2)
+    -- (0,2)
+
+    (2,0) to[R=$1.2\,\text{k}\Omega$] (2,2)
+    ;
+\end{circuitikz}
+\end{center}
+\newpage
+
+% c)
+\part
+
+
+% d)
+\part
+
+
+% e)
+\part
+
+
+\end{parts}
+\end{solution}
+\end{questions}
+\end{document}
