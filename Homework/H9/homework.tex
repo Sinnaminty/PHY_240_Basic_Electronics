@@ -71,12 +71,19 @@ and (c) justifies the name that you gave in part (a).
 
 % a) 
 \part
-This is a high pass filter because the low frequencies get consumed by the high impedance of the capacitor before returning to ground through the resistor.
+I believe that this is a high pass filter because the low frequencies get consumed by the high impedance of the capacitor before returning to ground through the resistor.\\
+\textbf{Note: I now know I was wrong, I'm keeping my original answer here though.}
 \newpage 
 
 % b) 
 \part
-With $R = 2\,\text{k}\Omega$\dots
+With,
+\[
+  R = 2000\,\Omega
+\]
+\[
+  C = 0.000001\text{ F}
+\]
 \begin{center}
 \begin{tikzpicture}
     \begin{axis}[
@@ -89,19 +96,21 @@ With $R = 2\,\text{k}\Omega$\dots
         samples=400,
         title={Voltage Between Terminals a and b}
     ]
-    % -1:0, switch closed, no voltage
+    % -1:0, switch open, no voltage
     \addplot[
         domain=-1:0,
         thick,
         color=black
     ]{0};
 
-    % 0:2, switch closed, no voltage
+    % 0:2, switch closed
     \addplot[
         domain=0:2,
         thick,
         color=red
-    ]{(e^x) -1 };
+    ]{10 * (1 - e^(-(x/1000)/(2000 * 0.000001)))};
+
+    \node at (0.25,0) [anchor=south west] {$V_{ab}(t) = V_i \times (1 - e^{\frac{-t}{RC}})$};
     \end{axis}
 \end{tikzpicture}
 \end{center}
@@ -109,7 +118,13 @@ With $R = 2\,\text{k}\Omega$\dots
 
 % c) 
 \part
-With $R = 200\,\Omega$\dots
+With,
+\[
+  R = 200\,\Omega
+\]
+\[
+  C = 0.000001\text{ F}
+\]
 \begin{center}
 \begin{tikzpicture}
     \begin{axis}[
@@ -122,19 +137,22 @@ With $R = 200\,\Omega$\dots
         samples=400,
         title={Voltage Between Terminals a and b}
     ]
-    % -1:0, switch closed, no voltage
+    % -1:0, switch open, no voltage
     \addplot[
         domain=-1:0,
         thick,
         color=black
     ]{0};
 
-    % 0:2, switch closed, no voltage
+    % 0:2, switch closed
     \addplot[
         domain=0:2,
         thick,
         color=red
-    ]{(e^x) -1 };
+    ]{10 * (1 - e^(-(x/1000)/(200 * 0.000001)))};
+
+    \node at (0.25,0) [anchor=south west] {$V_{ab}(t) = V_i \times (1 - e^{\frac{-t}{RC}})$};
+    \node at (1,10) [anchor=north west] {$V_{max}$};
     \end{axis}
 \end{tikzpicture}
 \end{center}
@@ -142,7 +160,7 @@ With $R = 200\,\Omega$\dots
 
 % d) 
 \part
-My brother in christ, what are you talking about
+After graphing the voltage over time for this circuit, this circuit would actually appear to be a low pass filter instead! It appears that voltages applied over a very tiny time span (1 ms or so) are mostly ignored. We can change the value of the resistor in order to adjust the band of frequencies we allow through on the high side, where higher resistor values will cut off more high frequencies, and lower resistor values will allow more high frequencies.
 \end{parts}
 \end{solution}
 \end{questions}
