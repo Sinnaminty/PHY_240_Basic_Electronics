@@ -61,12 +61,11 @@ Get ur schematic here!\\
 \begin{center}
 \begin{circuitikz}[american voltages]
     \draw
-    (0,2) to[battery1, l_=10V] (0,0)
+    (0,0) to[battery1, invert, l=10V] (0,2)
+    to[R=$1.2\,\text{k}\Omega$] (2,2)
+    to[C, l=$250\,\text{nF}$] (4,2)
     -- (4,0)
-    to[C, l_=$250\,\text{nF}$] (4,2)
-    -- (0,2)
-
-    (2,0) to[R=$1.2\,\text{k}\Omega$] (2,2)
+    -- (0,0)
     ;
 \end{circuitikz}
 \end{center}
@@ -74,16 +73,46 @@ Get ur schematic here!\\
 
 % b)
 \part
-Anotha one!\\
+First, we have to figure out the voltage across the capacitor.
+\[
+  Q=CV
+\]
+\[
+  V=\frac{Q}{C}
+\]
+\[
+  V=\frac{0.000004\, C}{0.000000250\, F} = 16V
+\]
+So the voltage across the capacitor is 16 V.\\
+Now, we find the voltage across the resistor.
+\[
+  V_{total} = V_{r} + V_{c}
+\]
+\[
+  V_{r} = V_{total} - V_{c}
+\]
+\[
+  V_{r} = -6V
+\]
+Calculating the current is trivial.
+\[
+  I=\frac{V_{r}}{R}
+\]
+\[
+  I=\frac{-6V}{1200\,\Omega}
+\]
+\[
+  I=-0.005A
+\]
+The current is flowing towards the positive plate.
 \begin{center}
 \begin{circuitikz}[american voltages]
     \draw
-    (0,2) to[battery1, l_=10V] (0,0)
+    (0,0) to[battery1, invert, l=10V] (0,2)
+    (2,2) to[R, i=$1.2\,\text{k}\Omega$] (0,2)
+    (2,2) to[C, l=$250\,\text{nF}$] (4,2)
     -- (4,0)
-    to[C, l_=$250\,\text{nF}$] (4,2)
-    -- (0,2)
-
-    (2,0) to[R=$1.2\,\text{k}\Omega$] (2,2)
+    -- (0,0)
     ;
 \end{circuitikz}
 \end{center}
@@ -91,16 +120,46 @@ Anotha one!\\
 
 % c)
 \part
-
+At $t=\infty$ the voltage across the capacitor will equal the supply voltage.
+\[
+V_c = 10V
+\]
+\[
+Q=CV_c
+\]
+\[
+Q=(0.00000025F)(10V) = 0.000025C
+\]
+So the positive plate of the capacitor would be at 2.5 $\mu$C.\\
+The side facing the positive terminal would be positive.
+\newpage
 
 % d)
 \part
-
+\[
+4\,\mu C - 2.5\,\mu C = 1.5\,\mu C
+\]
+\newpage
 
 % e)
 \part
-
-
+\[
+  E=\frac{1}{2}CV^2
+\]
+\[
+  E_0=\frac{1}{2}(0.00000025F)(16V)^2
+\]
+\[
+  E_0=0.000032 J = 32\,\mu J
+\]
+So the energy stored in the capacitor at $t=0$ is 32 $\mu J$.
+\[
+  E_{\infty}=\frac{1}{2}(0.00000025F)(10V)^2
+\]
+\[
+  E_{\infty}=0.0000125 J = 12.5\,\mu J
+\]
+And the energy stored in the capacitor at $t=\infty$ is 12.5 $\mu J$.
 \end{parts}
 \end{solution}
 \end{questions}
