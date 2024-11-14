@@ -1,0 +1,80 @@
+\documentclass[12pt]{exam}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{circuitikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage[lmargin=71pt, tmargin=1.2in]{geometry}  %For centering solution box
+\thispagestyle{empty}
+\begin{document}
+
+\nopointsinmargin
+\pointformat{}
+
+\begingroup
+\centering
+\LARGE PHY 240: Basic Electronics\\
+\LARGE Homework Problem H11\\[0.5em]
+\large \today\\
+\large Aiden Rivera\par
+\endgroup
+
+\rule{\textwidth}{0.4pt}
+
+\printanswers
+
+\begin{questions}
+\question \textbf{RC Detective.}\\
+Consider this circuit, in which we wish to determine the values of $R$ and $C$.
+Unfortunately, $R$ and $C$ are locked up inside of a device (represented by the
+dashed line) that prevents their direct measurement.
+
+\begin{center}
+\begin{circuitikz}[american voltages]
+    \node (vina) at (-3,2) {};
+    \node (vinb) at (-3,0)  {};
+    \node (vouta) at (4,2) {};
+    \node (voutb) at (4,0)  {};
+
+    \node (vin) at (-3,1) {$V_{in}$};
+    \node (vout) at (4,1) {$V_{out}$};
+
+    \draw
+    (vina) to[R, l=$1\,\text{k}\Omega$, o-] (-1,2)
+    to[short, -o] (vouta)
+
+    (vinb) to[short, o-o] (voutb)
+
+    (0,2) to[C, l=$C$] (0,0)
+    (2,2) to[R, l=$R$] (2,0)
+
+    (-1,3) to[dashed] (3,3)
+    to[dashed] (3, -1)
+    to[dashed] (-1, -1)
+    to[dashed] (-1, 3)
+    ;
+\end{circuitikz}
+\end{center}
+
+In order to determine the values of $R$ and $C$ within the device, we place a
+known resistor of resistance 1 k$\Omega$ in front of the device, hold the input voltage
+at 10 V for a long time, and then allow it to drop suddenly to 0 V at time
+t = 1 ms. While we do this, we monitor both $V_{in}$ and $V_{out}$. The results are
+shown in the plot below (in which the dashed curve represents $V_{in}$ and the
+solid curve represents $V_{out}$).
+
+Use the plot to determine $R$ and $C$. Here are a few hints:
+\begin{itemize}
+  \item You can use the steady state behavior of the circuit to determine $R$!
+  \item You can use the capacitor’s discharge curve to determine the product $R_{eff} C$!
+  \item You can relate $R$ to $R_{eff}$ by considering how the two resistors are configured from the point of view of a discharging $C$.
+\end{itemize}
+Graph here.
+\newpage
+
+\begin{solution}
+  Finding $R$ is easier, so let's do that first.\\
+\end{solution}
+\end{questions}
+\end{document}
