@@ -1,0 +1,77 @@
+\documentclass[12pt]{exam}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{circuitikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage[lmargin=71pt, tmargin=1.2in]{geometry}  %For centering solution box
+\thispagestyle{empty}
+\begin{document}
+
+\nopointsinmargin
+\pointformat{}
+
+\begingroup
+\centering
+\LARGE PHY 240: Basic Electronics\\
+\LARGE Homework Problem H12\\[0.5em]
+\large \today\\
+\large Aiden Rivera\par
+\endgroup
+
+\rule{\textwidth}{0.4pt}
+
+\printanswers
+
+\begin{questions}
+\question \textbf{What Does it Do?}\\
+Consider this circuit:
+\begin{center}
+
+\begin{circuitikz}[american voltages]
+    \node (vina) at (-2,2) {};
+    \node (vinb) at (-2,0)  {};
+    \node (vouta) at (2,2) {};
+    \node (voutb) at (2,0)  {};
+
+    \node (vin) at (-2,1) {$V_{in}$};
+    \node (vout) at (2,1) {$V_{out}$};
+
+    \draw
+    (vina) to[C, l=$20\,\text{nF}$, o-] (0,2)
+    to[short, -o] (vouta)
+
+    (vinb) to[short, o-*] (0,0)
+    to[short, -o] (voutb)
+
+    (0,2) to[R, l=$470\,\Omega$] (0,0)
+    to (0, 0) node[ground] {}
+    ;
+\end{circuitikz}
+\end{center}
+\begin{parts}
+\part 
+Suppose the capacitor is uncharged at time $t=0$ and we send in the following input signal at $V_{in}$:\\
+meow.
+\part
+meow2
+\end{parts}
+\newpage
+
+\begin{solution}
+\begin{parts}
+
+%a 
+\part
+
+\newpage
+
+%b
+\part
+
+\newpage
+\end{parts}
+\end{solution}
+\end{questions}
+\end{document}
